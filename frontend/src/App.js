@@ -39,7 +39,21 @@ function ScrollToTop() {
       setTimeout(() => tryScroll(0), 80);
       return;
     }
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    // Sem hash: força o topo ao trocar de rota.
+    // Lenis intercepta window.scrollTo, então precisamos avisá-lo também.
+    const scrollToTopNow = () => {
+      const lenis = window.__lenis;
+      if (lenis) {
+        lenis.scrollTo(0, { immediate: true, force: true });
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+    // Executa imediatamente e novamente no próximo frame (após o Lenis
+    // sincronizar com o DOM montado da nova página).
+    scrollToTopNow();
+    requestAnimationFrame(scrollToTopNow);
   }, [pathname, hash]);
   return null;
 }
