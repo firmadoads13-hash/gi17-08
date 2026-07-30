@@ -153,7 +153,7 @@ export default function Eva() {
       </section>
 
       {/* COMPOSTOS */}
-      <section className="section prod-block prod-block--white-dots" id="compostos-em-eva">
+      <section className="section prod-block pessoas-hero-inverted" id="compostos-em-eva">
         <div className="shell shell-narrow prod-split prod-split--left prod-split--wide-media">
           <div className="prod-split-img reveal">
             <img src="/assets/solucoes/composto-eva.jpg" alt="Compostos em EVA da Gi" loading="lazy" decoding="async" />

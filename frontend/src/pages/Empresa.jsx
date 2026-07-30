@@ -256,7 +256,7 @@ export default function Empresa() {
       </section>
 
       {/* SEÇÃO 4 — PESSOAS E CONTINUIDADE */}
-      <section className="section sec-pessoas-center sec-white sec-timeline-dots">
+      <section className="section sec-pessoas-center pessoas-hero-inverted">
         <div className="shell text-center">
           <h2 className="h-section text-reveal" style={{ maxWidth: "32ch", marginLeft: "auto", marginRight: "auto" }}>
             {splitWords("Pessoas e continuidade")}

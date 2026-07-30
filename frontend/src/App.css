@@ -6065,3 +6065,75 @@ section.sec-mvv-bg,
   }
 }
 
+
+/* =====================================================================
+   PESSOAS E CONTINUIDADE — mesmo layout visual da hero .footprint
+   (grid de pontos + bokeh de partículas + animações), porém com
+   fundo BRANCO e pontos AZUIS (inversão de cores).
+   ===================================================================== */
+.pessoas-hero-inverted {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--cor-texto);
+  background:
+    radial-gradient(ellipse 60% 55% at 8% 15%, rgba(90, 175, 240, 0.12), transparent 60%),
+    radial-gradient(ellipse 45% 50% at 92% 82%, rgba(30, 140, 220, 0.10), transparent 65%),
+    radial-gradient(ellipse 70% 60% at 50% 110%, rgba(40, 120, 210, 0.10), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f4f8fc 45%, #ffffff 100%);
+  border-top: 1px solid rgba(40, 92, 112, 0.10);
+  border-bottom: 1px solid rgba(40, 92, 112, 0.10);
+}
+
+/* Camada 1: Grid de pontos futurista em AZUL sobre branco */
+.pessoas-hero-inverted::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at center, rgba(20, 90, 170, 0.55) 0.9px, transparent 1.4px),
+    radial-gradient(circle at center, rgba(40, 120, 200, 0.32) 0.7px, transparent 1.1px);
+  background-size: 26px 26px, 14px 14px;
+  background-position: 0 0, 7px 7px;
+  mask-image:
+    radial-gradient(ellipse 90% 60% at 50% 85%, black 15%, rgba(0,0,0,0.55) 45%, transparent 80%);
+  -webkit-mask-image:
+    radial-gradient(ellipse 90% 60% at 50% 85%, black 15%, rgba(0,0,0,0.55) 45%, transparent 80%);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+  animation: footprintGridDrift 40s linear infinite;
+}
+
+/* Camada 2: Bokeh de partículas azuis brilhantes sobre branco */
+.pessoas-hero-inverted::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 10% 18%, rgba(20, 90, 170, 0.75) 1.2px, rgba(40,120,200,0.30) 3px, transparent 6px),
+    radial-gradient(circle at 82% 12%, rgba(20, 90, 170, 0.70) 1px, rgba(60,140,210,0.28) 2.5px, transparent 5px),
+    radial-gradient(circle at 25% 82%, rgba(30, 100, 180, 0.72) 1.4px, rgba(60,140,210,0.30) 3.5px, transparent 7px),
+    radial-gradient(circle at 68% 88%, rgba(20, 90, 170, 0.68) 1.1px, rgba(60,140,210,0.24) 2.8px, transparent 6px),
+    radial-gradient(circle at 55% 25%, rgba(30, 100, 180, 0.70) 1px, rgba(60,140,210,0.28) 2.5px, transparent 5px),
+    radial-gradient(circle at 90% 55%, rgba(20, 90, 170, 0.68) 1.2px, rgba(60,140,210,0.26) 3px, transparent 6px),
+    radial-gradient(circle at 5% 55%, rgba(20, 90, 170, 0.68) 1px, rgba(60,140,210,0.22) 2.5px, transparent 5px),
+    radial-gradient(circle at 42% 62%, rgba(30, 100, 180, 0.70) 1.1px, rgba(60,140,210,0.28) 2.8px, transparent 6px),
+    radial-gradient(circle at 32% 12%, rgba(40, 120, 200, 0.55) 0.6px, transparent 2px),
+    radial-gradient(circle at 62% 45%, rgba(40, 120, 200, 0.50) 0.5px, transparent 1.8px),
+    radial-gradient(circle at 15% 42%, rgba(40, 120, 200, 0.48) 0.5px, transparent 1.6px),
+    radial-gradient(circle at 75% 72%, rgba(40, 120, 200, 0.55) 0.6px, transparent 1.8px),
+    radial-gradient(circle at 48% 92%, rgba(40, 120, 200, 0.50) 0.5px, transparent 1.6px),
+    radial-gradient(ellipse 45% 40% at 12% 20%, rgba(90, 175, 240, 0.14), transparent 70%),
+    radial-gradient(ellipse 55% 30% at 50% 105%, rgba(60, 150, 230, 0.18), transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+  animation: footprintParticles 5s ease-in-out infinite;
+}
+
+/* Conteúdo acima das camadas decorativas */
+.pessoas-hero-inverted > * {
+  position: relative;
+  z-index: 2;
+}
+
