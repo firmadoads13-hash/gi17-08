@@ -32,7 +32,7 @@ export default function Matrizes() {
       </section>
 
       {/* BLOCO 1 · ENCAIXE */}
-      <section className="section prod-block">
+      <section className="section prod-block matrizes-encaixe-hero-bg">
         <div className="shell shell-narrow">
           <h2 className="h-section text-reveal">
             {splitWords("Onde as matrizes da Gi se encaixam melhor")}
@@ -70,7 +70,7 @@ export default function Matrizes() {
       </section>
 
       {/* BLOCO 3 · MATRIZ ALINHADA AO SOLADO E AO PROCESSO */}
-      <section className="section prod-block sec-warm">
+      <section className="section prod-block matrizes-encaixe-hero-bg matrizes-alinhada-bg">
         <div className="shell shell-narrow">
           <h2 className="h-section text-reveal">
             {splitWords("Matriz alinhada ao solado e ao processo")}

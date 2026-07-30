@@ -146,7 +146,7 @@ ${ouvidoriaForm.mensagem}
   return (
     <main data-testid="contato-page">
       {/* SEÇÃO 2 — FORMULÁRIO DE CONTATO */}
-      <section className="section sec-warm" style={{ paddingTop: "8rem" }}>
+      <section className="section pessoas-hero-inverted" style={{ paddingTop: "8rem" }}>
         <div className="shell contact-grid">
           <div>
             <h2 className="h-section text-reveal" style={{ maxWidth: "20ch" }}>

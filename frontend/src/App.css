@@ -6137,3 +6137,154 @@ section.sec-mvv-bg,
   z-index: 2;
 }
 
+
+/* =====================================================================
+   MATRIZES · "Onde as matrizes da Gi se encaixam melhor"
+   Reproduz o background da hero da página Empresa (.footprint):
+   gradientes azul profundo + grid neon + bokeh de partículas.
+   Sem restrições de layout (min-height/flex) — apenas visual de fundo.
+   ===================================================================== */
+.matrizes-encaixe-hero-bg {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: #ffffff;
+  background:
+    radial-gradient(ellipse 60% 55% at 8% 15%, rgba(90, 175, 240, 0.38), transparent 60%),
+    radial-gradient(ellipse 45% 50% at 92% 82%, rgba(30, 140, 220, 0.22), transparent 65%),
+    radial-gradient(ellipse 70% 60% at 50% 110%, rgba(40, 120, 210, 0.28), transparent 70%),
+    linear-gradient(180deg, #051428 0%, #0a1f3d 40%, #061428 100%);
+  border-top: 1px solid rgba(100, 180, 255, 0.18);
+  border-bottom: 1px solid rgba(100, 180, 255, 0.18);
+}
+
+/* Camada 1: Grid de pontos (efeito wave de partículas) */
+.matrizes-encaixe-hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at center, rgba(150, 215, 255, 0.55) 0.9px, transparent 1.4px),
+    radial-gradient(circle at center, rgba(90, 175, 240, 0.28) 0.7px, transparent 1.1px);
+  background-size: 26px 26px, 14px 14px;
+  background-position: 0 0, 7px 7px;
+  mask-image:
+    radial-gradient(ellipse 90% 60% at 50% 85%, black 15%, rgba(0,0,0,0.55) 45%, transparent 80%);
+  -webkit-mask-image:
+    radial-gradient(ellipse 90% 60% at 50% 85%, black 15%, rgba(0,0,0,0.55) 45%, transparent 80%);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+  animation: footprintGridDrift 40s linear infinite;
+}
+
+/* Camada 2: Bokeh de partículas brilhantes */
+.matrizes-encaixe-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 10% 18%, rgba(200, 230, 255, 0.95) 1.2px, rgba(180,220,255,0.4) 3px, transparent 6px),
+    radial-gradient(circle at 82% 12%, rgba(200, 230, 255, 0.9) 1px, rgba(150,200,255,0.35) 2.5px, transparent 5px),
+    radial-gradient(circle at 25% 82%, rgba(210, 235, 255, 0.92) 1.4px, rgba(160,210,255,0.4) 3.5px, transparent 7px),
+    radial-gradient(circle at 68% 88%, rgba(200, 230, 255, 0.85) 1.1px, rgba(150,200,255,0.3) 2.8px, transparent 6px),
+    radial-gradient(circle at 55% 25%, rgba(210, 240, 255, 0.9) 1px, rgba(160,210,255,0.35) 2.5px, transparent 5px),
+    radial-gradient(circle at 90% 55%, rgba(200, 235, 255, 0.85) 1.2px, rgba(150,205,255,0.35) 3px, transparent 6px),
+    radial-gradient(circle at 5% 55%, rgba(200, 230, 255, 0.85) 1px, rgba(160,210,255,0.3) 2.5px, transparent 5px),
+    radial-gradient(circle at 42% 62%, rgba(210, 235, 255, 0.9) 1.1px, rgba(150,200,255,0.35) 2.8px, transparent 6px),
+    radial-gradient(circle at 32% 12%, rgba(190, 225, 255, 0.7) 0.6px, transparent 2px),
+    radial-gradient(circle at 62% 45%, rgba(190, 225, 255, 0.65) 0.5px, transparent 1.8px),
+    radial-gradient(circle at 15% 42%, rgba(190, 225, 255, 0.6) 0.5px, transparent 1.6px),
+    radial-gradient(circle at 75% 72%, rgba(200, 230, 255, 0.7) 0.6px, transparent 1.8px),
+    radial-gradient(circle at 48% 92%, rgba(190, 225, 255, 0.65) 0.5px, transparent 1.6px),
+    radial-gradient(ellipse 45% 40% at 12% 20%, rgba(100, 180, 255, 0.20), transparent 70%),
+    radial-gradient(ellipse 55% 30% at 50% 105%, rgba(80, 170, 255, 0.25), transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+  animation: footprintParticles 5s ease-in-out infinite;
+}
+
+/* Conteúdo acima das camadas decorativas */
+.matrizes-encaixe-hero-bg > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Ajusta cores do texto sobre fundo escuro */
+.matrizes-encaixe-hero-bg .h-section,
+.matrizes-encaixe-hero-bg .h-section .word,
+.matrizes-encaixe-hero-bg .h-sub,
+.matrizes-encaixe-hero-bg h1,
+.matrizes-encaixe-hero-bg h2,
+.matrizes-encaixe-hero-bg h3 {
+  color: #ffffff;
+  text-shadow:
+    0 2px 8px rgba(0,0,0,0.4),
+    0 0 40px rgba(120, 200, 255, 0.20);
+}
+.matrizes-encaixe-hero-bg .body-lg,
+.matrizes-encaixe-hero-bg .body-md,
+.matrizes-encaixe-hero-bg p {
+  color: rgba(230, 240, 255, 0.88);
+}
+.matrizes-encaixe-hero-bg .prod-bullets li {
+  color: rgba(230, 240, 255, 0.92);
+}
+.matrizes-encaixe-hero-bg .prod-bullets li::before {
+  background: rgba(150, 210, 255, 0.9);
+}
+
+
+/* =====================================================================
+   MATRIZES · "Matriz alinhada ao solado e ao processo"
+   Herda o background da hero da Empresa via .matrizes-encaixe-hero-bg
+   e adiciona MAIS MOVIMENTO às bolinhas (drift + flutuação + pulse).
+   Mantém a MESMA densidade de pontos.
+   ===================================================================== */
+
+/* Grid de pontos: drift mais rápido + micro flutuação vertical em loop */
+.matrizes-alinhada-bg::before {
+  animation:
+    matrizesAlinhadaGridDrift 18s linear infinite,
+    matrizesAlinhadaGridFloat 6s ease-in-out infinite;
+}
+
+/* Bokeh de partículas: pulse mais rápido + oscilação leve horizontal */
+.matrizes-alinhada-bg::after {
+  animation:
+    matrizesAlinhadaParticles 2.6s ease-in-out infinite,
+    matrizesAlinhadaParticlesSway 9s ease-in-out infinite;
+}
+
+@keyframes matrizesAlinhadaGridDrift {
+  0%   { background-position: 0 0, 7px 7px; }
+  100% { background-position: 26px 26px, 33px 33px; }
+}
+
+@keyframes matrizesAlinhadaGridFloat {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  25%      { transform: translate3d(-3px, -4px, 0); }
+  50%      { transform: translate3d(2px, -8px, 0); }
+  75%      { transform: translate3d(4px, -3px, 0); }
+}
+
+@keyframes matrizesAlinhadaParticles {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  35% {
+    opacity: 1;
+    transform: translate3d(0, -6px, 0) scale(1.035);
+  }
+  70% {
+    opacity: 0.9;
+    transform: translate3d(0, -3px, 0) scale(0.985);
+  }
+}
+
+@keyframes matrizesAlinhadaParticlesSway {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+  50%      { filter: hue-rotate(-8deg) brightness(1.08); }
+}
+
