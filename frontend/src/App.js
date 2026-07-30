@@ -1,0 +1,77 @@
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import "@/App.css";
+
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import CustomCursor from "./components/CustomCursor";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import { useSmoothScroll } from "./lib/useSmoothScroll";
+
+import Home from "./pages/Home";
+import Empresa from "./pages/Empresa";
+import GiReboot from "./pages/GiReboot";
+import Contato from "./pages/Contato";
+import Eva from "./pages/Eva";
+import Matrizes from "./pages/Matrizes";
+
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    // Se houver hash (#sol-01 etc.), tenta rolar até o elemento.
+    // Usa o Lenis se disponível para scroll suave, senão fallback nativo.
+    if (hash) {
+      const tryScroll = (attempt = 0) => {
+        const el = document.querySelector(hash);
+        if (el) {
+          const lenis = window.__lenis;
+          const top = el.getBoundingClientRect().top + window.scrollY - 100;
+          if (lenis) {
+            lenis.scrollTo(top, { duration: 1.2 });
+          } else {
+            window.scrollTo({ top, behavior: "smooth" });
+          }
+        } else if (attempt < 10) {
+          // Pode ser que a página ainda esteja montando; tenta novamente
+          setTimeout(() => tryScroll(attempt + 1), 80);
+        }
+      };
+      setTimeout(() => tryScroll(0), 80);
+      return;
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname, hash]);
+  return null;
+}
+
+function Shell() {
+  useSmoothScroll();
+  return (
+    <div className="gi-app">
+      <div className="bg-texture" aria-hidden="true" />
+      <CustomCursor />
+      <Nav />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/empresa" element={<Empresa />} />
+        <Route path="/gi-reboot" element={<GiReboot />} />
+        <Route path="/eva" element={<Eva />} />
+        <Route path="/matrizes" element={<Matrizes />} />
+        <Route path="/contato" element={<Contato />} />
+      </Routes>
+      <Footer />
+      <FloatingWhatsApp />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Shell />
+    </BrowserRouter>
+  );
+}
+
+export default App;
