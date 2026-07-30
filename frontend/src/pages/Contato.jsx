@@ -351,7 +351,7 @@ ${ouvidoriaForm.mensagem}
       </section>
 
       {/* SEÇÃO 3 — INFORMAÇÕES DE CONTATO E ENDEREÇOS */}
-      <section className="section section-atendimento">
+      <section className="section section-atendimento matrizes-encaixe-hero-bg">
         <div className="shell">
           <h2 className="h-section text-reveal" style={{ maxWidth: "22ch" }}>
             {splitWords("Atendimento e unidades")}
