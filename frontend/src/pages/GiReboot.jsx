@@ -150,8 +150,9 @@ export default function GiReboot() {
             <div className="reveal reboot-hero-viewer reboot-hero-viewer--dark" data-testid="gi-reboot-3d-carousel">
               <Viewer3DCarousel
                 items={[
-                  { url: "/assets/3d/gi020.glb", label: "GI020 · Nº30" },
-                  { url: "/assets/3d/gi015.glb", label: "GI015 · Nº35" },
+                  { url: "/assets/3d/solagi020-n30.obj", label: "GI020 · Nº30" },
+                  { url: "/assets/3d/gi019.obj", label: "GI019" },
+                  { url: "/assets/3d/gi015-new.obj", label: "GI015" },
                 ]}
               />
             </div>
