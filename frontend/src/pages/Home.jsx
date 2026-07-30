@@ -13,10 +13,10 @@ gsap.registerPlugin(ScrollTrigger);
 const SOLUCOES = [
   {
     n: "01",
-    t: "Solados em EVA",
-    d: "Solados injetados em EVA para linhas casuais, esportivas, infantis e de segurança.",
-    img: "/assets/solucoes/Fabrica-solados.webp",
-    link: "/eva#solados-em-eva",
+    t: "Gi Reboot® — E-TPU da Gi",
+    d: "E-TPU desenvolvido para trabalhar junto com o EVA em linhas de alta performance e em outras aplicações industriais.",
+    img: "/assets/solucoes/gi-reboot-etpu.jpg",
+    link: "/gi-reboot",
   },
   {
     n: "02",
@@ -27,31 +27,31 @@ const SOLUCOES = [
   },
   {
     n: "03",
-    t: "Gi Reboot® — E-TPU da Gi",
-    d: "E-TPU desenvolvido para trabalhar junto com o EVA em linhas de alta performance e em outras aplicações industriais.",
-    img: "/assets/solucoes/gi-reboot-etpu.jpg",
-    link: "/gi-reboot",
+    t: "Solados em EVA",
+    d: "Solados injetados em EVA para linhas casuais, esportivas, infantis e de segurança.",
+    img: "/assets/solucoes/Fabrica-solados.webp",
+    link: "/eva#solados-em-eva",
   },
   {
     n: "04",
+    t: "Linhas sustentáveis",
+    d: "Linhas com conteúdo reciclado e de origem renovável, como Recovery e Green, aliando desempenho e responsabilidade ambiental.",
+    img: "/assets/solucoes/Solado-pneu.webp",
+    link: "/#sustentabilidade",
+  },
+  {
+    n: "05",
     t: "Compostos em EVA",
     d: "Compostos em EVA formulados sob medida para injetoras e parceiros estratégicos.",
     img: "/assets/solucoes/composto-eva.jpg",
     link: "/eva#compostos-em-eva",
   },
   {
-    n: "05",
+    n: "06",
     t: "Matrizes",
     d: "Matrizaria de alta precisão para solados e componentes, integrada ao desenvolvimento de produto.",
     img: "/assets/solucoes/Fabrica-Matriz.webp",
     link: "/matrizes",
-  },
-  {
-    n: "06",
-    t: "Linhas sustentáveis",
-    d: "Linhas com conteúdo reciclado e de origem renovável, como Recovery e Green, aliando desempenho e responsabilidade ambiental.",
-    img: "/assets/solucoes/Solado-pneu.webp",
-    link: "/#sustentabilidade",
   },
 ];
 
