@@ -6288,3 +6288,46 @@ section.sec-mvv-bg,
   50%      { filter: hue-rotate(-8deg) brightness(1.08); }
 }
 
+
+/* =====================================================================
+   Section "Atendimento e unidades" — todas as fontes em branco
+   ===================================================================== */
+.section-atendimento.matrizes-encaixe-hero-bg,
+.section-atendimento.matrizes-encaixe-hero-bg *,
+.section-atendimento.matrizes-encaixe-hero-bg .how-col-title,
+.section-atendimento.matrizes-encaixe-hero-bg .contact-card,
+.section-atendimento.matrizes-encaixe-hero-bg .contact-card .lbl,
+.section-atendimento.matrizes-encaixe-hero-bg .contact-card a,
+.section-atendimento.matrizes-encaixe-hero-bg .contact-card p,
+.section-atendimento.matrizes-encaixe-hero-bg .contact-card span,
+.section-atendimento.matrizes-encaixe-hero-bg h1,
+.section-atendimento.matrizes-encaixe-hero-bg h2,
+.section-atendimento.matrizes-encaixe-hero-bg h3,
+.section-atendimento.matrizes-encaixe-hero-bg h4,
+.section-atendimento.matrizes-encaixe-hero-bg h5,
+.section-atendimento.matrizes-encaixe-hero-bg h6,
+.section-atendimento.matrizes-encaixe-hero-bg p,
+.section-atendimento.matrizes-encaixe-hero-bg a,
+.section-atendimento.matrizes-encaixe-hero-bg li,
+.section-atendimento.matrizes-encaixe-hero-bg span,
+.section-atendimento.matrizes-encaixe-hero-bg strong,
+.section-atendimento.matrizes-encaixe-hero-bg em,
+.section-atendimento.matrizes-encaixe-hero-bg .label-mini,
+.section-atendimento.matrizes-encaixe-hero-bg .body-lg,
+.section-atendimento.matrizes-encaixe-hero-bg .body-md,
+.section-atendimento.matrizes-encaixe-hero-bg .word {
+  color: #ffffff !important;
+}
+
+/* Sub-labels/monospaces ficam com leve transparência mas ainda brancos */
+.section-atendimento.matrizes-encaixe-hero-bg .lbl,
+.section-atendimento.matrizes-encaixe-hero-bg .label-mini {
+  color: rgba(200, 225, 255, 0.85) !important;
+}
+
+/* Hover em links: mantém branco com underline sutil */
+.section-atendimento.matrizes-encaixe-hero-bg a:hover {
+  color: #ffffff !important;
+  opacity: 0.88;
+}
+
