@@ -91,7 +91,7 @@ export default function Eva() {
           <div className="prod-split-3d reveal">
             <Viewer3DCarousel
               items={[
-                { url: "/assets/3d/NY90.obj",      label: "NY90 · Nº35" },
+                { url: "/assets/3d/NY90.glb",      label: "NY90 · Nº35" },
                 { url: "/assets/3d/EVOLUTION.obj", label: "EVOLUTION" },
                 { url: "/assets/3d/ENERGY.obj",    label: "ENERGY" },
                 { url: "/assets/3d/BUMPER.obj",    label: "BUMPER" },
