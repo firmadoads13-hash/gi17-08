@@ -96,6 +96,11 @@ export default function Eva() {
                 { url: "/assets/3d/PHILLIS.glb", label: "PHILLIS" },
                 { url: "/assets/3d/PR11.glb",    label: "PR11" },
                 { url: "/assets/3d/RETRO.glb",   label: "RETRO" },
+                { url: "/assets/3d/GI002.glb",   label: "GI002" },
+                { url: "/assets/3d/GI005.glb",   label: "GI005" },
+                { url: "/assets/3d/GI007.glb",   label: "GI007" },
+                { url: "/assets/3d/GI011.glb",   label: "GI011" },
+                { url: "/assets/3d/GI016.glb",   label: "GI016" },
               ]}
             />
           </div>
