@@ -91,16 +91,21 @@ export default function Eva() {
           <div className="prod-split-3d reveal">
             <Viewer3DCarousel
               items={[
-                { url: "/assets/3d/NY90.glb",    label: "NY90 · Nº35" },
-                { url: "/assets/3d/LL20.glb",    label: "LL20" },
-                { url: "/assets/3d/PHILLIS.glb", label: "PHILLIS" },
-                { url: "/assets/3d/PR11.glb",    label: "PR11" },
-                { url: "/assets/3d/RETRO.glb",   label: "RETRO" },
-                { url: "/assets/3d/GI002.glb",   label: "GI002" },
-                { url: "/assets/3d/GI005.glb",   label: "GI005" },
-                { url: "/assets/3d/GI007.glb",   label: "GI007" },
-                { url: "/assets/3d/GI011.glb",   label: "GI011" },
-                { url: "/assets/3d/GI016.glb",   label: "GI016" },
+                { url: "/assets/3d/NY90.glb",       label: "NY90 · Nº35" },
+                { url: "/assets/3d/LL20.glb",       label: "LL20" },
+                { url: "/assets/3d/PHILLIS.glb",    label: "PHILLIS" },
+                { url: "/assets/3d/PR11.glb",       label: "PR11" },
+                { url: "/assets/3d/RETRO.glb",      label: "RETRO" },
+                { url: "/assets/3d/GI002.glb",      label: "GI002" },
+                { url: "/assets/3d/GI005.glb",      label: "GI005" },
+                { url: "/assets/3d/GI007.glb",      label: "GI007" },
+                { url: "/assets/3d/GI011.glb",      label: "GI011" },
+                { url: "/assets/3d/GI016.glb",      label: "GI016" },
+                { url: "/assets/3d/138.glb",        label: "138" },
+                { url: "/assets/3d/ATTRACTION.glb", label: "ATTRACTION" },
+                { url: "/assets/3d/BUMPER.glb",     label: "BUMPER" },
+                { url: "/assets/3d/ENERGY.glb",     label: "ENERGY" },
+                { url: "/assets/3d/EVOLUTION.glb",  label: "EVOLUTION" },
               ]}
             />
           </div>
