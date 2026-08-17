@@ -5,7 +5,7 @@ import Viewer3D from "./Viewer3D";
  * Viewer3DCarousel
  * Setas alinhadas com os dots na barra inferior.
  */
-export default function Viewer3DCarousel({ items = [] }) {
+export default function Viewer3DCarousel({ items = [], catalogUrl = "/contato" }) {
   const [idx, setIdx] = useState(0);
   const total = items.length;
   const current = items[idx] || items[0];
@@ -19,7 +19,8 @@ export default function Viewer3DCarousel({ items = [] }) {
   if (!current) return null;
 
   return (
-    <div className="viewer-carousel" data-testid="viewer-carousel">
+    <div className="viewer-carousel-wrap">
+      <div className="viewer-carousel" data-testid="viewer-carousel">
       <Viewer3D
         key={current.url}
         label={current.label}
@@ -69,6 +70,17 @@ export default function Viewer3DCarousel({ items = [] }) {
       <span className="viewer-counter">
         {String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
       </span>
+      </div>
+
+      {/* Link para catálogo completo */}
+      <a
+        href={catalogUrl}
+        className="viewer-catalog-link"
+        data-cursor="Ver catálogo"
+        data-testid="viewer-catalog-link"
+      >
+        Ver nosso catálogo completo
+      </a>
     </div>
   );
 }

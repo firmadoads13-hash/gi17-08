@@ -91,7 +91,7 @@ export default function Eva() {
           <div className="prod-split-3d reveal">
             <Viewer3DCarousel
               items={[
-                { url: "/assets/3d/NY90.glb",       label: "NY90 · Nº35" },
+                { url: "/assets/3d/NY90.glb",       label: "NY90" },
                 { url: "/assets/3d/LL20.glb",       label: "LL20" },
                 { url: "/assets/3d/PHILLIS.glb",    label: "PHILLIS" },
                 { url: "/assets/3d/PR11.glb",       label: "PR11" },
@@ -147,9 +147,9 @@ export default function Eva() {
           <div className="prod-split-3d reveal">
             <Viewer3DCarousel
               items={[
-                { url: "/assets/3d/AI33.glb",    label: "AI33 · Nº35" },
-                { url: "/assets/3d/DIAMOND.glb", label: "Gi Diamond · Nº35" },
-                { url: "/assets/3d/GI017.glb",   label: "Gi 017 · Nº35" },
+                { url: "/assets/3d/AI33.glb",    label: "AI33" },
+                { url: "/assets/3d/DIAMOND.glb", label: "Gi Diamond" },
+                { url: "/assets/3d/GI017.glb",   label: "Gi 017" },
               ]}
             />
           </div>

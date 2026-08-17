@@ -153,7 +153,7 @@ export default function GiReboot() {
                   { url: "/assets/3d/GI014.glb", label: "GI014" },
                   { url: "/assets/3d/GI015.glb", label: "GI015" },
                   { url: "/assets/3d/GI019.glb", label: "GI019" },
-                  { url: "/assets/3d/GI020.glb", label: "GI020 · Nº30" },
+                  { url: "/assets/3d/GI020.glb", label: "GI020" },
                 ]}
               />
             </div>
