@@ -391,6 +391,7 @@ export default function Viewer3D({
   };
 
   return (
+    <div className="viewer-3d-frame" data-testid="viewer-3d-frame">
     <div
       className="viewer-3d-container"
       ref={wrapRef}
@@ -400,8 +401,15 @@ export default function Viewer3D({
       <canvas ref={canvasRef} id="gi-reboot-viewer" />
       <span className="viewer-badge">{label}</span>
 
-      {/* Painel de controles (cor + controles de câmera) */}
-      <div className="viewer-side-panel">
+      {loading && inViewport && (
+        <div className="viewer-loading" data-testid="viewer-loading">
+          Carregando modelo…
+        </div>
+      )}
+    </div>
+
+    {/* Painel de controles (cor + controles de câmera) — FORA do canvas */}
+    <div className="viewer-side-panel viewer-side-panel--below">
         {/* COR */}
         <div
           className={`viewer-color-plus ${pickerOpen ? "is-open" : ""}`}
@@ -554,12 +562,6 @@ export default function Viewer3D({
           )}
         </div>
       </div>
-
-      {loading && inViewport && (
-        <div className="viewer-loading" data-testid="viewer-loading">
-          Carregando modelo…
-        </div>
-      )}
     </div>
   );
 }

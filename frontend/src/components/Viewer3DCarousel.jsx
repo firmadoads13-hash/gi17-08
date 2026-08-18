@@ -20,12 +20,13 @@ export default function Viewer3DCarousel({ items = [], catalogUrl = "/contato" }
 
   return (
     <div className="viewer-carousel-wrap">
-      <div className="viewer-carousel" data-testid="viewer-carousel">
-      <Viewer3D
-        key={current.url}
-        label={current.label}
-        modelUrl={current.url}
-      />
+      <div className="viewer-carousel-layout">
+        <div className="viewer-carousel" data-testid="viewer-carousel">
+        <Viewer3D
+          key={current.url}
+          label={current.label}
+          modelUrl={current.url}
+        />
 
       {/* Barra inferior: seta · dots · seta */}
       <div className="viewer-navbar" aria-hidden="false">
@@ -66,10 +67,38 @@ export default function Viewer3DCarousel({ items = [], catalogUrl = "/contato" }
           </svg>
         </button>
       </div>
+        </div>
 
-      <span className="viewer-counter">
-        {String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-      </span>
+        {/* Lista clicável de modelos ao lado do canvas */}
+        <aside className="viewer-model-list" aria-label="Lista de modelos">
+          <div className="viewer-model-list__header">
+            <span className="viewer-model-list__eyebrow">Modelos</span>
+            <span className="viewer-model-list__count">
+              {String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+            </span>
+          </div>
+          <ul className="viewer-model-list__items" role="listbox">
+            {items.map((it, i) => (
+              <li key={it.url} role="option" aria-selected={i === idx}>
+                <button
+                  type="button"
+                  className={`viewer-model-item ${i === idx ? "is-active" : ""}`}
+                  onClick={() => setIdx(i)}
+                  data-cursor={`Ver ${it.label}`}
+                  data-testid={`viewer-model-item-${i}`}
+                >
+                  <span className="viewer-model-item__num">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="viewer-model-item__name">{it.label}</span>
+                  <span className="viewer-model-item__arrow" aria-hidden>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M9 6l6 6-6 6" />
+                    </svg>
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </aside>
       </div>
 
       {/* Link para catálogo completo */}

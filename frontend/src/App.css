@@ -1920,7 +1920,31 @@ body.hero-immersive .gi-nav:not(.scrolled) .hamburger span {
 /* ============================================
    VIEWER 3D — PLUS: Color + Intensity picker
    Compacto por padrão (só o ponto/ícone), expande no hover
+   FORA do canvas (viewer-side-panel--below): barra horizontal
+   abaixo do canvas para que os painéis abertos não cubram o 3D.
    ============================================ */
+
+/* Frame wrapper (canvas + HUD abaixo) */
+.viewer-3d-frame {
+  position: relative;
+  display: block;
+  height: 560px;
+  margin-bottom: 60px;
+}
+.viewer-3d-frame .viewer-3d-container {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+/* Navbar (dots+setas) fica dentro do canvas, não sobre o HUD.
+   No layout novo ele é posicionado por top, ancorado ao frame. */
+.viewer-carousel-layout .viewer-navbar {
+  top: 512px;
+  bottom: auto;
+}
+
+/* HUD antigo (dentro do canvas) — mantido por compatibilidade */
 .viewer-side-panel {
   position: absolute;
   top: 1rem;
@@ -1933,6 +1957,50 @@ body.hero-immersive .gi-nav:not(.scrolled) .hamburger span {
   pointer-events: none;
 }
 .viewer-side-panel > * { pointer-events: auto; }
+
+/* HUD NOVO — abaixo do canvas, fora dele (posicionado no espaço da margin-bottom do frame) */
+.viewer-side-panel.viewer-side-panel--below {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  margin-top: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  padding: 0;
+  z-index: 5;
+}
+.viewer-side-panel--below .viewer-color-plus,
+.viewer-side-panel--below .viewer-controls-wrap {
+  flex-direction: row;
+  align-items: center;
+}
+/* Como está fora do canvas, sempre mostra o label (não precisa esconder) */
+.viewer-side-panel--below .viewer-plus-trigger,
+.viewer-side-panel--below .viewer-controls-trigger {
+  gap: 0.55rem;
+  padding: 0.5rem 0.9rem 0.5rem 0.55rem;
+}
+.viewer-side-panel--below .viewer-plus-trigger .plus-label,
+.viewer-side-panel--below .viewer-controls-trigger .plus-label {
+  max-width: 200px;
+  opacity: 1;
+}
+/* Painéis abrem para baixo, alinhados à esquerda do trigger */
+.viewer-side-panel--below .viewer-plus-panel,
+.viewer-side-panel--below .viewer-controls {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  transform-origin: top left;
+}
+.viewer-side-panel--below .viewer-color-plus,
+.viewer-side-panel--below .viewer-controls-wrap {
+  position: relative;
+}
 
 .viewer-color-plus {
   display: flex;
@@ -6409,6 +6477,154 @@ section.sec-mvv-bg,
   flex-direction: column;
   gap: 1rem;
   width: 100%;
+}
+
+/* Layout com 2 colunas: canvas à esquerda, lista de modelos à direita */
+.viewer-carousel-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* Lista de modelos ao lado do canvas */
+.viewer-model-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.9rem 0.9rem 0.6rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--cor-borda);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 6px 20px rgba(15, 44, 54, 0.08);
+  max-height: 560px;
+  align-self: stretch;
+}
+.viewer-model-list__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0 0.15rem 0.55rem;
+  border-bottom: 1px solid rgba(15, 44, 54, 0.08);
+  margin-bottom: 0.35rem;
+}
+.viewer-model-list__eyebrow {
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cor-acento);
+  opacity: 0.85;
+}
+.viewer-model-list__count {
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--cor-texto);
+  opacity: 0.6;
+}
+.viewer-model-list__items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 480px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15,44,54,0.2) transparent;
+}
+.viewer-model-list__items::-webkit-scrollbar { width: 6px; }
+.viewer-model-list__items::-webkit-scrollbar-thumb {
+  background: rgba(15,44,54,0.2);
+  border-radius: 3px;
+}
+
+/* Item da lista */
+.viewer-model-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.55rem 0.6rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--cor-texto);
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s var(--ease-out-quint);
+}
+.viewer-model-item:hover {
+  background: rgba(15, 44, 54, 0.05);
+  border-color: rgba(15, 44, 54, 0.10);
+  transform: translateX(2px);
+}
+.viewer-model-item.is-active {
+  background: var(--cor-acento);
+  border-color: var(--cor-acento);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(15, 44, 54, 0.18);
+}
+.viewer-model-item.is-active .viewer-model-item__num {
+  color: rgba(255,255,255,0.7);
+}
+.viewer-model-item.is-active .viewer-model-item__arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: #ffffff;
+}
+.viewer-model-item__num {
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--cor-texto);
+  opacity: 0.55;
+  min-width: 20px;
+}
+.viewer-model-item__name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.viewer-model-item__arrow {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.25s ease, transform 0.25s var(--ease-out-quint);
+  color: var(--cor-acento);
+}
+.viewer-model-item:hover .viewer-model-item__arrow {
+  opacity: 0.9;
+  transform: translateX(0);
+}
+
+/* Mobile: lista embaixo do canvas */
+@media (max-width: 900px) {
+  .viewer-carousel-layout {
+    grid-template-columns: 1fr;
+  }
+  .viewer-model-list {
+    max-height: 260px;
+  }
+  .viewer-model-list__items {
+    max-height: 200px;
+  }
 }
 
 .viewer-catalog-link {
